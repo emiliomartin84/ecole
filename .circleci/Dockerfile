@@ -22,7 +22,16 @@ RUN conda install --channel scipopt --channel conda-forge \
         cmake make conan \
         scip pyscipopt python="${python_version}" pybind11 numpy xtensor-python \
         pytest pytest-cov && \
-    conda clean --all --yes
+    conda clean --all --yes && \
+    `# Temporary override pybind11 version to 2.5 otherwise pinned by xtensor-python` \
+    `# Until https://github.com/conda-forge/xtensor-python-feedstock/pull/65 is merged ` \
+    wget https://github.com/pybind/pybind11/archive/v2.5.0.tar.gz -O pybind11-2.5.0.tgz && \
+    tar -xzf pybind11-2.5.0.tgz && \
+    cmake -B build -S pybind11-2.5.0 -D PYBIND11_TEST=OFF -D PYTHON_EXECUTABLE="$(pyenv which python)" && \
+    cmake --build build && \
+    cmake --install build --prefix "/opt/pyenv/versions/miniconda3-latest/" && \
+    rm -rf pybind11-2.5.0.tgz pybind11-2.5.0 build
+
 WORKDIR /app
 
 # --------------------
