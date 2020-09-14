@@ -1,5 +1,3 @@
-cmake_minimum_required (VERSION 3.8)
-
 option(ENABLE_DOCUMENTATION "Build documentation with Doxygen and Sphinx" OFF)
 
 if(NOT ENABLE_DOCUMENTATION)
