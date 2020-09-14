@@ -2,11 +2,13 @@
 
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
+#include <scip/var.h>
 
 #include "ecole/scip/model.hpp"
 #include "ecole/scip/scimpl.hpp"
 
 #include "core.hpp"
+#include "span_bind.hpp"
 
 namespace ecole::scip {
 
@@ -17,8 +19,11 @@ void bind_submodule(py::module const& m) {
 
 	py::register_exception<scip::Exception>(m, "Exception");
 
+	py::class_<scip::Var> py_variable(m, "Variable");
+	bind_span<nonstd::span<Var*>>(m, "VariableView");
+
 	py::class_<Model, std::shared_ptr<Model>>(m, "Model")  //
-		.def_static("from_file", &Model::from_file)
+		.def_static("from_file", &Model::from_file, py::call_guard<py::gil_scoped_release>())
 		.def_static("prob_basic", &Model::prob_basic)
 		.def_static(
 			"from_pyscipopt",
@@ -61,8 +66,20 @@ void bind_submodule(py::module const& m) {
 
 		.def("transform_prob", &Model::transform_prob, py::call_guard<py::gil_scoped_release>())
 		.def("presolve", &Model::presolve, py::call_guard<py::gil_scoped_release>())
+<<<<<<< HEAD
 		.def("solve", &Model::solve, py::call_guard<py::gil_scoped_release>())
 		.def("is_solved", &Model::is_solved);
+||||||| parent of 818a8e5... Bind Span and iterative solve
+		.def("solve", &Model::solve, py::call_guard<py::gil_scoped_release>());
+=======
+		.def("solve", &Model::solve, py::call_guard<py::gil_scoped_release>())
+		.def("is_solved", &Model::is_solved)
+
+		.def_property_readonly("lp_branch_cands", &Model::lp_branch_cands)
+		.def("solve_iter", &Model::solve_iter)
+		.def("solve_iter_is_done", &Model::solve_iter_is_done, py::call_guard<py::gil_scoped_release>())
+		.def("solve_iter_branch", &Model::solve_iter_branch);
+>>>>>>> 818a8e5... Bind Span and iterative solve
 }
 
 }  // namespace ecole::scip
