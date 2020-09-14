@@ -1,3 +1,8 @@
+# Force IPO policy for PyBind11
+# Should be fixed in PyBind11 >= 2.6 https://github.com/pybind/pybind11/pull/2370
+cmake_policy(SET CMP0069 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0069 NEW CACHE STRING "" FORCE)
+
 # Moving files to binary dir to create python package
 foreach(py_file "setup.py" "src/ecole/__init__.py")
 	configure_file(

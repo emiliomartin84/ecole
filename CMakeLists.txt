@@ -12,6 +12,9 @@ set(Ecole_AUTHORS "Antoine Prouvost")
 # Set default parameters. Assumes Ecole user,
 include(cmake/DefaultSettings.cmake)
 
+# Add option to enable interprocedural optimization
+include(cmake/InterproceduralOptimization.cmake)
+
 # Define a target Ecole::warnings with all compiler warnings.
 include(cmake/CompilerWarnings.cmake)
 
