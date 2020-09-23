@@ -7,6 +7,7 @@ add_library(
 	src/scip/scimpl.cpp
 	src/scip/model.cpp
 	src/scip/exception.cpp
+	src/instance/set-cover.cpp
 	src/utility/reverse-control.cpp
 	src/reward/isdone.cpp
 	src/reward/lpiterations.cpp
