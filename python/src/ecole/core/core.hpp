@@ -10,6 +10,10 @@ namespace scip {
 void bind_submodule(pybind11::module const& m);
 }
 
+namespace instance {
+void bind_submodule(pybind11::module const& m);
+}
+
 namespace observation {
 void bind_submodule(pybind11::module const& m);
 }

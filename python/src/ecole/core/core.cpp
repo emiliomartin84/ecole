@@ -68,6 +68,7 @@ PYBIND11_MODULE(core, m) {
 		"Create new random engine deriving from main source of randomness");
 
 	scip::bind_submodule(m.def_submodule("scip"));
+	instance::bind_submodule(m.def_submodule("instance"));
 	observation::bind_submodule(m.def_submodule("observation"));
 	reward::bind_submodule(m.def_submodule("reward"));
 	environment::bind_submodule(m.def_submodule("environment"));

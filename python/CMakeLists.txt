@@ -27,6 +27,7 @@ pybind11_add_module(
 	ecole-python SYSTEM
 	src/ecole/core/core.cpp
 	src/ecole/core/scip.cpp
+	src/ecole/core/instance.cpp
 	src/ecole/core/observation.cpp
 	src/ecole/core/reward.cpp
 	src/ecole/core/environment.cpp

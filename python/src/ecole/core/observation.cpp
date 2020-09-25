@@ -48,8 +48,6 @@ template <typename PyClass, typename... Args> auto def_obtain_observation(PyClas
 void bind_submodule(py::module const& m) {
 	m.doc() = "Observation classes for Ecole.";
 
-	xt::import_numpy();
-
 	auto nothing = py::class_<Nothing>(m, "Nothing", R"(
 		No observation.
 
