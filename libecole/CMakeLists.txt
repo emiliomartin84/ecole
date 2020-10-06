@@ -7,6 +7,7 @@ add_library(
 	src/scip/scimpl.cpp
 	src/scip/model.cpp
 	src/scip/exception.cpp
+	src/instance/capacitated-facility-location.cpp
 	src/instance/combinatorial-auction.cpp
 	src/instance/set-cover.cpp
 	src/instance/independent-set.cpp

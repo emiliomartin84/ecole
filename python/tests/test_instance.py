@@ -25,6 +25,7 @@ def pytest_generate_tests(metafunc):
             I.SetCoverGenerator(),
             I.IndependentSetGenerator(),
             I.CombinatorialAuctionGenerator(),
+            I.CapacitatedFacilityLocationGenerator(),
         )
         metafunc.parametrize("instance_generator", all_instance_generators)
 
@@ -76,3 +77,9 @@ def test_CombinatorialAuctionGenerator_parameters():
     """Parameters are bound in the constructor and as attributes."""
     generator = I.CombinatorialAuctionGenerator(additivity=-1)
     assert generator.additivity == -1
+
+
+def test_CapacitatedFacilityLocationGenerator_parameters():
+    """Parameters are bound in the constructor and as attributes."""
+    generator = I.CapacitatedFacilityLocationGenerator(ratio=-1)
+    assert generator.ratio == -1
