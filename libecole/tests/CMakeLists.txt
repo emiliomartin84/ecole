@@ -9,6 +9,7 @@ add_executable(
 	src/scip/test-scimpl.cpp
 	src/scip/test-model.cpp
 	src/instance/test-set-cover.cpp
+	src/instance/test-independent-set.cpp
 	src/environment/test-environment-composer.cpp
 	src/environment/test-branching-dynamics.cpp
 	src/environment/test-configuring-dynamics.cpp

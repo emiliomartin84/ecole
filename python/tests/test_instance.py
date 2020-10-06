@@ -21,7 +21,7 @@ def pytest_generate_tests(metafunc):
     `instance_generator` as input.
     """
     if "instance_generator" in metafunc.fixturenames:
-        all_instance_generators = (I.SetCoverGenerator(),)
+        all_instance_generators = (I.SetCoverGenerator(), I.IndependentSetGenerator())
         metafunc.parametrize("instance_generator", all_instance_generators)
 
 
@@ -32,13 +32,13 @@ def test_default_init(instance_generator):
 
 def test_random_engine_init(instance_generator):
     """Construct a random engine."""
-    type(instance_generator)(random_engine=ecole.environment.RandomEngine())
+    type(instance_generator)(random_engine=ecole.RandomEngine())
 
 
 def test_generate_instance(instance_generator):
     """Use stateless instance generating function."""
     InstanceGenerator = type(instance_generator)
-    model = InstanceGenerator.generate_instance(ecole.environment.RandomEngine())
+    model = InstanceGenerator.generate_instance(ecole.RandomEngine())
     assert isinstance(model, ecole.scip.Model)
 
 
@@ -60,3 +60,9 @@ def test_SetCoverGenerator_parameters():
     """Parameters are bound in the constructor and as attributes."""
     generator = I.SetCoverGenerator(n_cols=10)
     assert generator.n_cols == 10
+
+
+def test_IndependentSetGenerator_parameters():
+    """Parameters are bound in the constructor and as attributes."""
+    generator = I.IndependentSetGenerator(graph_type="erdos_renyi")
+    assert generator.graph_type.name == "erdos_renyi"
