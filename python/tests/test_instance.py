@@ -21,7 +21,11 @@ def pytest_generate_tests(metafunc):
     `instance_generator` as input.
     """
     if "instance_generator" in metafunc.fixturenames:
-        all_instance_generators = (I.SetCoverGenerator(), I.IndependentSetGenerator())
+        all_instance_generators = (
+            I.SetCoverGenerator(),
+            I.IndependentSetGenerator(),
+            I.CombinatorialAuctionGenerator(),
+        )
         metafunc.parametrize("instance_generator", all_instance_generators)
 
 
@@ -66,3 +70,9 @@ def test_IndependentSetGenerator_parameters():
     """Parameters are bound in the constructor and as attributes."""
     generator = I.IndependentSetGenerator(graph_type="erdos_renyi")
     assert generator.graph_type.name == "erdos_renyi"
+
+
+def test_CombinatorialAuctionGenerator_parameters():
+    """Parameters are bound in the constructor and as attributes."""
+    generator = I.CombinatorialAuctionGenerator(additivity=-1)
+    assert generator.additivity == -1
