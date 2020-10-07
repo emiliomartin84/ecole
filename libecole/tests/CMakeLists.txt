@@ -8,6 +8,7 @@ add_executable(
 	src/test-random.cpp
 	src/scip/test-scimpl.cpp
 	src/scip/test-model.cpp
+	src/instance/unit-tests.cpp
 	src/instance/test-capacitated-facility-location.cpp
 	src/instance/test-combinatorial-auction.cpp
 	src/instance/test-set-cover.cpp
