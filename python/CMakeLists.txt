@@ -75,7 +75,6 @@ set(
 	"observation.py" "reward.py" "scip.py" "environment.py"
 	"_set_cover_generator.py"
 	"_combinatorial_auction_generator.py"
-	"_capacitated_facility_location_generator.py"
 	"_independent_set_generator.py"
 	"instance.py"
 )
