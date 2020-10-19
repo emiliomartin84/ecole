@@ -6,6 +6,7 @@ add_library(
 	src/random.cpp
 	src/scip/scimpl.cpp
 	src/scip/model.cpp
+	src/scip/cons.cpp
 	src/scip/exception.cpp
 	src/instance/capacitated-facility-location.cpp
 	src/instance/combinatorial-auction.cpp
