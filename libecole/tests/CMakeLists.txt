@@ -7,6 +7,7 @@ add_executable(
 	src/test-traits.cpp
 	src/test-random.cpp
 	src/utility/test-vector.cpp
+	src/utility/test-random.cpp
 	src/scip/test-scimpl.cpp
 	src/scip/test-model.cpp
 	src/instance/unit-tests.cpp
