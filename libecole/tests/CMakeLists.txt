@@ -6,6 +6,7 @@ add_executable(
 	src/conftest.cpp
 	src/test-traits.cpp
 	src/test-random.cpp
+	src/utility/test-vector.cpp
 	src/scip/test-scimpl.cpp
 	src/scip/test-model.cpp
 	src/instance/unit-tests.cpp
