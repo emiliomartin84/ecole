@@ -15,6 +15,7 @@ add_executable(
 	src/instance/test-combinatorial-auction.cpp
 	src/instance/test-set-cover.cpp
 	src/instance/test-independent-set.cpp
+	src/instance/test-independent-set-graph.cpp
 	src/environment/test-environment-composer.cpp
 	src/environment/test-branching-dynamics.cpp
 	src/environment/test-configuring-dynamics.cpp
@@ -32,7 +33,12 @@ target_compile_definitions(
 	test-libecole PRIVATE TEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data"
 )
 
-target_include_directories(test-libecole PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(
+	test-libecole
+	PRIVATE
+		${CMAKE_CURRENT_SOURCE_DIR}/src
+		${CMAKE_SOURCE_DIR}/libecole/src  # Add libecole private include
+	)
 
 target_link_libraries(
 	test-libecole
