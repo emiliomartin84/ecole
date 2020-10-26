@@ -13,6 +13,7 @@ add_library(
 	src/instance/combinatorial-auction.cpp
 	src/instance/set-cover.cpp
 	src/instance/independent-set.cpp
+	src/instance/independent-set-graph.cpp
 	src/utility/reverse-control.cpp
 	src/reward/isdone.cpp
 	src/reward/lpiterations.cpp
