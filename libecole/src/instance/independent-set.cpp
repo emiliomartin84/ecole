@@ -3,7 +3,6 @@
 
 #include <fmt/format.h>
 #include <range/v3/range/conversion.hpp>
-#include <range/v3/view/enumerate.hpp>
 #include <range/v3/view/iota.hpp>
 #include <range/v3/view/transform.hpp>
 
@@ -119,8 +118,9 @@ public:
 
 	/** Build a constant time clique lookup. */
 	CliqueIndex(std::vector<std::vector<Node>> const& clique_partition, std::size_t n_nodes) : cliques_ids(n_nodes) {
-		for (auto const& [id, clique] : views::enumerate(clique_partition)) {
-			for (auto node : clique) {
+		auto const n_ids = clique_partition.size();
+		for (auto id = CliqueId{0}; id < n_ids; ++id) {
+			for (auto node : clique_partition[id]) {
 				cliques_ids[node] = id;
 			}
 		}
