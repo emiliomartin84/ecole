@@ -27,7 +27,7 @@ Combinatorial optimization solvers typically rely on a plethora of handcrafted e
 which can fail to exploit subtle statistical similarities between problem intances.
 `Machine Learning <https://en.wikipedia.org/wiki/Machine_learning>`_ algorithms offer
 a promising candidate for replacing those heuristics, by learning data-driven policies that automatically
-account for such statistical relationships, and thereby creating a new kind of highly adaptive solvers [Bengio2018,]_.
+account for such statistical relationships, and thereby creating a new kind of highly adaptive solvers.
 
 For instance, many combinatorial optimization problems can be modeled using `Mixed Integer
 Linear Programming <https://en.wikipedia.org/wiki/Integer_programming>`_ and solved using
