@@ -62,9 +62,9 @@ public:
 			dynamics().set_dynamics_random_state(model(), random_engine);
 
 			// Bring model to initial state and reset state functions
-			auto const [done, action_set] = dynamics().reset_dynamics(model());
-			obs_func().reset(model());
 			reward_func().reset(model());
+			obs_func().reset(model());
+			auto const [done, action_set] = dynamics().reset_dynamics(model());
 
 			can_transition = !done;
 			auto const reward_offset = reward_func().obtain_reward(model(), done);
