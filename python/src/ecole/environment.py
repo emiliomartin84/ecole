@@ -102,11 +102,11 @@ class EnvironmentComposer:
 
             self.dynamics.set_dynamics_random_state(self.model, self.random_engine)
 
+            self.reward_function.reset(self.model)
+            self.observation_function.reset(self.model)
             done, action_set = self.dynamics.reset_dynamics(
                 self.model, *dynamics_args, **dynamics_kwargs
             )
-            self.observation_function.reset(self.model)
-            self.reward_function.reset(self.model)
 
             reward_offset = self.reward_function.obtain_reward(self.model)
             observation = self.observation_function.obtain_observation(self.model)
